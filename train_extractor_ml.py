@@ -6,6 +6,7 @@ from os.path import join, exists
 import pickle as pkl
 
 from cytoolz import compose
+import tensorflow as tf
 
 import torch
 from torch import optim

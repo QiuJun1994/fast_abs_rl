@@ -4,6 +4,7 @@ import json
 import os
 from os.path import join, exists
 import pickle as pkl
+import tensorflow as tf
 
 from cytoolz import compose
 
