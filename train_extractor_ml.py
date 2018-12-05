@@ -230,8 +230,10 @@ if __name__ == '__main__':
                         help='run in debugging mode')
     parser.add_argument('--no-cuda', action='store_true',
                         help='disable GPU training')
+    parser.add_argument('--gpunumber', type=int, action='store', default=1,
+                        help='use which GPU number')
     args = parser.parse_args()
     args.bi = not args.no_bi
     args.cuda = torch.cuda.is_available() and not args.no_cuda
-
-    main(args)
+    with tf.device("/gpu:"+str(args.gpunumber)):
+        main(args)
